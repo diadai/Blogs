@@ -76,3 +76,32 @@ alert(data[0].name);   // zhangsan
 这是书上的原例，向`createComparisonFunction(propertyName)` 传递一个属性变量，在返回比较后的数值，由sort()方法根据数值比较大小，返回对应的属性值。
 
 ####**函数内部属性**####
+函数内部有两个特殊的对象：arguments和this。其中arguments有个属性叫callee，该属性是一个指针，指向拥有这个arguments对象的函数。
+下面是金典的阶乘函数：
+
+```
+       function factorial(num) {
+            if (num <=1){
+                return 1;
+            }else {
+                return num*arguments.callee(num-1); //消除下面紧密耦合现象
+             // return num*factorial(num-1); 耦合紧密
+            }
+        }
+        alert(factorial(3)); // 6
+```
+在编写程序中，尽量消除函数耦合现象，这有利于查看和维护代码。
+
+还有一个函数对象属性：caller，这个属性中保存着调用当前函数的引用，如果是在全局作用域中调用当前函数，它的值为null。
+
+```
+        function outer() {
+            inner();
+        }
+        function inner() {
+            alert(arguments.callee.caller);  //更松散的耦合
+         // alert(inner.caller);  和上行代码是等价的
+        }
+        outer();
+```
+这个结果会返回outer()函数的源代码（完整的代码）
