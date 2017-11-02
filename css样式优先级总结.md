@@ -225,6 +225,5 @@ E  在同一组属性设置中标有“!important”规则的优先级最大；
 
 
 **IE又是很特殊的一个详细内容参考**：
-
 [CSS 的优先级机制[总结]](http://www.cnblogs.com/xugang/archive/2010/09/24/1833760.html")
 [IE中奇怪的应用CSS的BUG](http://www.cnblogs.com/lhb25/archive/2010/09/19/1831209.html")
